@@ -1,0 +1,13 @@
+diff --git a/glm/simd/platform.h b/glm/simd/platform.h
+index a5510be..de97786 100644
+--- a/glm/simd/platform.h
++++ b/glm/simd/platform.h
+@@ -283,6 +283,8 @@
+ #		define GLM_COMPILER (GLM_COMPILER_GCC71)
+ #	elif (__GNUC__ == 7) && (__GNUC_MINOR__ == 2)
+ #		define GLM_COMPILER (GLM_COMPILER_GCC72)
++#	elif (__GNUC__ == 7) && (__GNUC_MINOR__ == 3)
++#		define GLM_COMPILER (GLM_COMPILER_GCC72)
+ #	elif (__GNUC__ >= 8)
+ #		define GLM_COMPILER (GLM_COMPILER_GCC80)
+ #	else

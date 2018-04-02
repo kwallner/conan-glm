@@ -12,6 +12,7 @@ class GlmConan(ConanFile):
     homepage = "https://github.com/g-truc/glm"
     author = "Bincrafters <bincrafters@gmail.com>"
     license = "MIT"
+    exports_sources = "platform.h.patch"
     exports = ["FindGLM.cmake", "LICENSE.md"]
     source_subfolder = "source_subfolder"
     no_copy_source = True
@@ -21,18 +22,7 @@ class GlmConan(ConanFile):
         tools.get("{0}/archive/{1}.tar.gz".format(source_url, self.version))
         extracted_dir = "glm-" + self.version
         os.rename(extracted_dir, self.source_subfolder)
-        self.patch_gcc()
-
-    def patch_gcc(self):
-        header_file = os.path.join(self.source_subfolder, "glm", "simd", "platform.h")
-        tools.replace_in_file(header_file, """#	elif (__GNUC__ == 7) && (__GNUC_MINOR__ == 2)
-#		define GLM_COMPILER (GLM_COMPILER_GCC72)""",\
-                                           """
-#	elif (__GNUC__ == 7) && (__GNUC_MINOR__ == 2)
-#		define GLM_COMPILER (GLM_COMPILER_GCC72)
-#	elif (__GNUC__ == 7) && (__GNUC_MINOR__ == 3)
-#		define GLM_COMPILER (GLM_COMPILER_GCC72)
-                                           """)
+        tools.patch(base_path=self.source_subfolder, patch_file="platform.h.patch")
 
     def package(self):
         self.copy("FindGLM.cmake")

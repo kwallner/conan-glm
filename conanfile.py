@@ -4,9 +4,10 @@
 from conans import ConanFile, tools
 import os
 
+
 class GlmConan(ConanFile):
     name = "glm"
-    version = "0.9.8.5"
+    version = "0.9.9.0"
     description = "OpenGL Mathematics (GLM)"
     url = "https://github.com/bincrafters/conan-glm"
     homepage = "https://github.com/g-truc/glm"
@@ -22,7 +23,6 @@ class GlmConan(ConanFile):
         tools.get("{0}/archive/{1}.tar.gz".format(source_url, self.version))
         extracted_dir = "glm-" + self.version
         os.rename(extracted_dir, self.source_subfolder)
-        tools.patch(base_path=self.source_subfolder, patch_file="platform.h.patch")
 
     def package(self):
         self.copy("FindGLM.cmake")

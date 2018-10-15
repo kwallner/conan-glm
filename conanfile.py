@@ -7,7 +7,7 @@ import os
 
 class GlmConan(ConanFile):
     name = "glm"
-    version = "0.9.9.0"
+    version = "0.9.9.1"
     description = "OpenGL Mathematics (GLM)"
     url = "https://github.com/bincrafters/conan-glm"
     homepage = "https://github.com/g-truc/glm"

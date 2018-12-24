@@ -4,14 +4,13 @@
 from conans import ConanFile, tools
 import os
 
-
 class GlmConan(ConanFile):
     name = "glm"
-    version = "0.9.9.1"
+    version = "0.9.9.3"
     description = "OpenGL Mathematics (GLM)"
-    url = "https://github.com/bincrafters/conan-glm"
+    url = "https://github.com/kwallner/conan-glm"
     homepage = "https://github.com/g-truc/glm"
-    author = "Bincrafters <bincrafters@gmail.com>"
+    author = "Karl Wallner <kwallner@mail.de> & Bincrafters <bincrafters@gmail.com>"
     license = "MIT"
     exports_sources = "platform.h.patch"
     exports = ["FindGLM.cmake", "LICENSE.md"]
